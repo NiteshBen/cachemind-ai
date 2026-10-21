@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cachemind-ai"
+version = "0.1.0"
+description = "Production Semantic Caching, Sub-Millisecond Latency Minimizer & Cost Optimization Engine for LLMs & AI Agents"
+readme = "README.md"
+authors = [
+    { name = "Nitesh Beniwal", email = "niteshben01@gmail.com" }
+]
+license = { text = "MIT" }
+requires-python = ">=3.9"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: System :: Distributed Computing",
+]
+dependencies = [
+    "pydantic>=2.0.0",
+    "click>=8.0.0",
+    "numpy>=1.20.0",
+]
+
+[project.optional-dependencies]
+gemini = [
+    "google-genai>=0.1.0",
+]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=4.1.0",
+    "requests>=2.31.0",
+    "pillow>=10.0.0",
+]
+
+[project.scripts]
+cachemind = "cachemind.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/NiteshBen/cachemind-ai"
+Repository = "https://github.com/NiteshBen/cachemind-ai.git"
+Issues = "https://github.com/NiteshBen/cachemind-ai/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
